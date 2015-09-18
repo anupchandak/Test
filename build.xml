@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<project basedir="." default="run-unit-test" name="Test">
+	<property file="build-info.properties" />
+
+	<property environment="env" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.7" />
+	<property name="source" value="1.7" />
+
+	<path id="Test.classpath">
+		<pathelement location="jcommander-1.27.jar" />
+		<pathelement location="TestNGTest.jar" />
+		<pathelement location="testng-6.8.21.jar" />
+	</path>
+
+
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+		<classpath>
+			<pathelement location="testng-6.8.21.jar" />
+		</classpath>
+	</taskdef>
+
+
+
+	<target name="run-unit-test">
+		<testng classpathref="Test.classpath" testjar="TestNGTest.jar" testnames="Test2">
+		</testng>
+	</target>
+
+</project>
